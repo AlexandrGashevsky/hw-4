@@ -24,7 +24,7 @@ import ToDoList from "./components/ToDoList.vue";
 export default {
   data() {
     return {
-      cardName: "ToDo",
+      cardName: "UntitledToDo",
       editListsShow: false,
       listNames: ["list 1", "list 2", "list 3"]
     }
@@ -35,7 +35,7 @@ export default {
           return;
         } else {
           this.listNames.push(this.cardName);
-          this.cardName = "";
+          this.cardName = "UntitledToDo";
           this.editListsShow = !this.editListsShow
         }
     },

@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       editShow: false,
-      taskText: "task",
+      taskText: "UntitledTask",
       editedTask: null,
       tasks: [
         {
@@ -49,12 +49,12 @@ export default {
           return;
         } else {
           this.tasks.push({ name: this.taskText });
-          this.taskText = "";
+          this.taskText = "UntitledTask";
         }
       } else  {
         this.tasks[this.editedTask].name = this.taskText;
         this.editedTask = null;
-         this.taskText = "";
+         this.taskText = "UntitledTask";
       }
     },
     deleteTask(index) {

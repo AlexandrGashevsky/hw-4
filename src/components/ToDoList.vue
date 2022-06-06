@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       editShow: false,
-      taskText: "",
+      taskText: "task",
       editedTask: null,
       tasks: [
         {

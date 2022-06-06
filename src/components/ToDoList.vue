@@ -15,7 +15,9 @@
       </li>
     </ul>
     <div class="card-edit" v-show="editShow">
-      <input class="card-input" v-model="taskText" type="text" placeholder="Enter task" />
+      <input class="card-input" type="text" placeholder="Enter task" 
+      :value="taskText"
+      @input="event => taskText = event.target.value"/>
       <button @click="addTask">SUBMIT</button>
     </div>
     <button @click="editShow = !editShow">Edit</button>
@@ -54,7 +56,7 @@ export default {
       } else  {
         this.tasks[this.editedTask].name = this.taskText;
         this.editedTask = null;
-         this.taskText = "UntitledTask";
+        this.taskText = "UntitledTask";
       }
     },
     deleteTask(index) {

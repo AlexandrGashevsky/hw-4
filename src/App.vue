@@ -12,7 +12,10 @@ import ToDoList from "./components/ToDoList.vue";
       <button @click="addTask">SUBMIT</button> -->
       <div class="app-add-and-edit">
         <div v-show="editListsShow" class="app-edit-input">
-          <input class="app-input" v-model="cardName" type="text" placeholder="Enter list name" />
+          <input class="app-input" type="text" placeholder="Enter list name" 
+            :value="cardName"
+  @input="event => cardName = event.target.value"
+          />
           <button @click="addTask">SUBMIT</button> 
         </div>
         <button @click="editListsShow = !editListsShow" class="app-btn">+</button>
@@ -35,8 +38,8 @@ export default {
           return;
         } else {
           this.listNames.push(this.cardName);
+          this.editListsShow = !this.editListsShow;
           this.cardName = "UntitledToDo";
-          this.editListsShow = !this.editListsShow
         }
     },
     deleteList(index) {

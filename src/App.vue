@@ -1,12 +1,9 @@
-<script setup>
-import ToDoList from "./components/ToDoList.vue";
-</script>
 
 <template>
   <div class="app-lists">
-    <div v-for="(name, index) of listNames" class="app-card">
-      <ToDoList  :key="index" :toDoListName="name" />
-      <button :key="index" class="app-delete-list-button" @click="deleteList(index)">Delete</button>
+    <div :key="index" v-for="(name, index) of listNames" class="app-card">
+      <ToDoList   :toDoListName="name" />
+      <button class="app-delete-list-button" @click="deleteList(index)">Delete</button>
     </div>
    <!-- <input v-model="taskText" type="text" placeholder="Enter task" />
       <button @click="addTask">SUBMIT</button> -->
@@ -24,7 +21,11 @@ import ToDoList from "./components/ToDoList.vue";
 </template>
 
 <script>
+ import ToDoList from "@/components/ToDoList.vue";
 export default {
+  components: {
+    ToDoList
+  },
   data() {
     return {
       cardName: "UntitledToDo",

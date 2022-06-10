@@ -8,7 +8,7 @@
     <h3 class="card-name">{{toDoListName}}</h3>
     <ul>
       <li v-for="(task, index) in tasks" :key="index">
-        <input type="checkbox" name="taskCheck"/>
+        <input @click="task.done = !task.done" v-model="task.done" type="checkbox" name="taskCheck"/>
         <label class="card-task-label" for="taskCheck">{{ task.name }}</label>
         <button v-show="editShow" @click="deleteTask(index)">Delete</button>
         <button v-show="editShow" @click="editTask(index)">Edit</button>
@@ -37,9 +37,11 @@ export default {
       tasks: [
         {
           name: "task 1",
+          done: false
         },
         {
           name: "task 2",
+          done: true
         },
       ],
     };
